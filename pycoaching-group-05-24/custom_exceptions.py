@@ -1,0 +1,3 @@
+class InvalidOrderItemSize(Exception):
+    pass
+
