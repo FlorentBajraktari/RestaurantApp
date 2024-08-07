@@ -51,7 +51,7 @@ class OrderManager:
     def create_order(self, menu):
         order = Order()
         
-        self.add_order_item(order, menu.get_menu_items().get(100), 0, OrderItemSize.XXL)
+        self.add_order_item(order, menu.get_menu_items().get(100), 1, OrderItemSize.XXL)
         self.add_order_item(order, menu.get_menu_items().get(101), 2, OrderItemSize.MEDIUM)
         self.add_order_item(order, menu.get_menu_items().get(200), 1, OrderItemSize.LARGE)
         self.add_order_item(order, menu.get_menu_items().get(201), 3, OrderItemSize.XXL)
@@ -66,7 +66,37 @@ class OrderManager:
         order_item = OrderItem(product, order_item_size, quantity)
         return order_item
             
+    
+
+class InvoiceBuilder:
+    
+    def get_order_info(self, restaurant, client, order, order_amount, vat_rate):
+        order_info = self.__get_order_onfo_header(client)
+        
+        order_items = order.get_order_items()
+        for order_items in order_items:
+            order_info += self.__get_order_item_info(order_items)
             
+        return order_items
+    
+    def __get_order_item_info(self, order_item):
+        product = order_item.get_product()
+        total_order_item_price = total_order_item_price() * order_item.get_quantity()
+        
+        formatted_order_items_price = "${:.2f}".format(order_item.get_order_item_price())
+        formatted_total_order_item_price = "${:.2f}".format(total_order_item_price)
+        
+        
+        order_item_info = (
+            f"{order_item.get_quantity()} x {product.get_product_id()}."
+            f"{product.get_name()} | {formatted_total_order_item_price} Euro\n"
+        )
+        
+        
+        
+        
+        
+                    
             
                 
         

@@ -11,5 +11,11 @@ class Location(Enum):
     KOSOVO = 1
     GERMANY = 2
     
+class ApplicationMode(Enum):
+    ORDER = 1
+    TABLE_RESERVATION = 2
+
+    
+    
     
 

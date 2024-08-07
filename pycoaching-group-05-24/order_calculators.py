@@ -21,7 +21,7 @@ class AbstractOrderCalculator(ABC):
         product = order_item.get_product()
         total_order_item_price_single = product.get_price() * size_rate_amount
         order_item.set_order_item_price(total_order_item_price_single)
-       # if(order_item.get_quantity() == 0):
+        #if(order_item.get_quantity() == 0):
             #raise ValueError("Invalid order item quantity")
         
         return total_order_item_price_single * order_item.get_quantity()

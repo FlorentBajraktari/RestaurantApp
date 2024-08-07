@@ -1,0 +1,5 @@
+100,Cheeseburger,5.99,meal,
+101,Veggie Burger,6.49,meal,
+200,Fries,2.99,meal,
+201,Cola,1.99,drink,False
+202,Water,1.50,drink,True

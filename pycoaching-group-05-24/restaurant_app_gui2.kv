@@ -1,0 +1,173 @@
+Screen:
+    id: restaurantScreen
+    name: 'restaurantScreen'
+    MDCard:
+        size_hint: 1, 1
+        orientation: 'vertical'
+        spacing: 20
+
+        BoxLayout:
+            id: baseLayout
+            orientation: 'horizontal'
+            size_hint: 1, 0.9
+
+            # Nested BoxLayout 
+            BoxLayout:
+                id: first_box_layout
+                orientation: 'vertical'
+                size_hint: 0.3, 1
+                spacing: 20
+                Spinner:
+                    id: spinner
+                    text: 'Select size'
+                    values: ("Small", "Medium", "Large")
+                    size_hint: None, None
+                    size: 150, 50
+                    background_color: 0, 0.9, 0.9, 1
+                MDTextField:
+                    id: quantity_input
+                    hint_text: "Quantity"
+                    input_type: 'number'
+                    size_hint: None, None 
+                    size: 150, 30
+
+            # Nested BoxLayout 2
+            BoxLayout:
+                id: second_box_layout
+                orientation: 'vertical'
+                size_hint: 0.40, 1
+                spacing: 20
+                padding: 10
+                GridLayout:
+                    cols: 2
+                    size_hint: 1, None 
+
+                    MDTextField:
+                        id: name_field
+                        hint_text: "Eneter your name"
+                        size_hint: None, None 
+                        size: 200, 30
+
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_x: None 
+                        padding: [0, (30 - dp(10)) / 2]
+
+                        MDLabel:
+                            id: check_box_gr_label
+                            text: 'Germany'
+                            size_hint_x: None 
+                            valign: 'middle'
+
+                        CheckBox:
+                            id: check_box_gr
+                            active: True 
+                            color: 0,0,0,1
+                            size_hint: None, None 
+                            size: dp(10), dp(10)
+                            valign: 'middle'
+                    MDTextField:
+                        id: phone_field
+                        hint_text: "Enter your phone"
+                        size_hint: None, None 
+                        size: 200, 30
+
+                    BoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_x: None 
+
+                        MDLabel:
+                            id: Check_box_ks_label
+                            text: 'Kosovo'
+                            size_hint_x: None 
+                            valign: 'middle'
+
+                        CheckBox:
+                            id: check_box_ks
+                            active: False 
+                            color: 0,0,0,1
+                            size_hint: None, None 
+                            size: dp(10), dp(10)
+                            valign: 'middle'
+
+            # Nested BoxLayout 3
+            BoxLayout:
+                id: third_box_layout
+                orientation: 'vertical'
+                size_hint: 0.3, 1
+                spacing: 20
+                padding: 10
+                MDCard:
+                    id: third_box_layout
+                    elevation: 4
+                    orientation: 'vertical'
+                    size_hint: 1,1
+                    spacing: 20
+                    padding: 20
+
+                    MDLabel:
+                        id: invoice_laber
+                        text: 'Invoice will be printed here'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            pos_hint: {"center_x" : 0.5}
+            size_hint: 1, 0.1
+            spacing: dp(10)
+            padding: dp(10)
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: None, None 
+                spacing: dp(10)
+                pos_hint: {"center_x" : 0.5}
+
+                Button:
+                    id: add_button
+                    text: 'ADD'
+                    size_hint: None, None 
+                    size: 150, 50
+                    background_color: 0, 0.9, 0.9, 1
+                    on_release: app.add_to_order(self)
+                Button:
+                    id: delete_button
+                    text: 'Delete'
+                    size_hint: None, None 
+                    size: 150, 50
+                    background_color: 0, 0.9, 0.9, 1
+                    on_release: app.delete_from_order(self)
+                        
+                Button:
+                    id: order_button
+                    text: 'Order'
+                    size_hint: None, None 
+                    size: 150, 50
+                    background_color: 0, 0.9, 0.9, 1
+                    on_release: app.calculate_amount(self)
+                                
+                Button:
+                    id: refresh_button
+                    text: 'Refresh'
+                    size_hint: None, None 
+                    size: 150, 50
+                    background_color: 0, 0.9, 0.9, 1
+                    on_release: app.reset(self)
+                    
+                    
+
+                            
+                                    
+
+
+                                        
+                                
+
+
+
+
+
+
+                                
+
+
